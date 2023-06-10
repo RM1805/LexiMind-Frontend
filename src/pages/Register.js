@@ -11,6 +11,7 @@ import {
     Button,
     Alert,
     Collapse,
+    CircularProgress,
 } from "@mui/material";
 
 axios.defaults.baseURL = "https://leximind.onrender.com";
@@ -25,10 +26,12 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             await axios.post("/api/v1/auth/register", { username, email, password });
             toast.success("User Registered Successfully");
@@ -43,6 +46,8 @@ const Register = () => {
             setTimeout(() => {
                 setError("");
             }, 5000);
+        } finally {
+            setIsLoading(false);
         }
     };
     return (
@@ -99,8 +104,13 @@ const Register = () => {
                     variant="contained"
                     size="large"
                     sx={{ color: "white", mt: 2 }}
+                    disabled={isLoading}
                 >
-                    Sign Up
+                    {isLoading ? (
+                        <CircularProgress size={24} color="inherit" />
+                    ) : (
+                        'Sign Up'
+                    )}
                 </Button>
                 <Typography mt={2}>
                     Already have an account ? <Link to="/login">Please Login</Link>
