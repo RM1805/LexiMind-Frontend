@@ -11,6 +11,7 @@ import {
     Button,
     Alert,
     Collapse,
+    CircularProgress,
 } from '@mui/material';
 
 axios.defaults.baseURL = 'https://leximind.onrender.com';
@@ -22,9 +23,11 @@ const Login = ({ setAuthenticated }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             await axios.post('/api/v1/auth/login', { email, password });
             toast.success('Login Successfully');
@@ -41,15 +44,16 @@ const Login = ({ setAuthenticated }) => {
             setTimeout(() => {
                 setError('');
             }, 5000);
+        } finally {
+            setIsLoading(false);
         }
     };
 
-
     return (
         <Box
-            width={isNotMobile ? "40%" : "80%"}
-            p={"2rem"}
-            m={"2rem auto"}
+            width={isNotMobile ? '40%' : '80%'}
+            p={'2rem'}
+            m={'2rem auto'}
             borderRadius={5}
             sx={{ boxShadow: 5 }}
             backgroundColor={theme.palette.background.alt}
@@ -89,12 +93,17 @@ const Login = ({ setAuthenticated }) => {
                     fullWidth
                     variant="contained"
                     size="large"
-                    sx={{ color: "white", mt: 2 }}
+                    sx={{ color: 'white', mt: 2 }}
+                    disabled={isLoading}
                 >
-                    Login
+                    {isLoading ? (
+                        <CircularProgress size={24} color="inherit" />
+                    ) : (
+                        'Login'
+                    )}
                 </Button>
                 <Typography mt={2}>
-                    Don't have an account ? <Link to="/register">Please Sign Up</Link>
+                    Don't have an account? <Link to="/register">Please Sign Up</Link>
                 </Typography>
             </form>
         </Box>
