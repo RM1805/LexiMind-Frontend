@@ -1,19 +1,18 @@
-import './App.css';
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useMemo, useState } from 'react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { useMemo, useState } from "react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { themeSettings } from './theme';
-import Navbar from './components/Navbar';
-import Homepage from './pages/Homepage';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import { Toaster } from "react-hot-toast"
-import Summary from './pages/Summary';
-import Paragraph from './pages/Paragraph';
-import Chatbot from './pages/Chatbot';
-import CodeGenerator from './pages/Generatecodes';
-import ImageGenerator from './pages/Imagegenerator';
+import { themeSettings } from "./theme";
+import Navbar from "./components/Navbar";
+import Homepage from "./pages/Homepage";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import { Toaster } from "react-hot-toast";
+import Summary from "./pages/Summary";
+import Paragraph from "./pages/Paragraph";
+import Chatbot from "./pages/Chatbot";
+import CodeGenerator from "./pages/Generatecodes";
+import ImageGenerator from "./pages/Imagegenerator";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings()), []);
@@ -23,7 +22,10 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navbar authenticated={authenticated} setAuthenticated={setAuthenticated} />
+        <Navbar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
         <Toaster />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -41,10 +43,7 @@ function App() {
               <Route path="/image-generator" element={<ImageGenerator />} />
             </>
           ) : (
-            <Route
-              path="*"
-              element={<Navigate to="/login" replace />}
-            />
+            <Route path="*" element={<Navigate to="/login" replace />} />
           )}
         </Routes>
       </ThemeProvider>

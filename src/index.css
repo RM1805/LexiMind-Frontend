@@ -10,9 +10,10 @@ body {
 
 a {
   text-decoration: none;
-  color:  #50C878;
+  color:  #7C2EE6;
   padding: 20px;
   margin-top: 20px;
+  font: bold;
 }
 
 a:hover {
