@@ -140,7 +140,7 @@ const Homepage = () => {
                 Code Generator
               </Typography>
               <Typography variant="h6">
-                Ask to write codes and logics efficiently
+                Ask to write codes and logics
               </Typography>
             </Stack>
           </Card>
