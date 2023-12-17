@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <Box
       width={"100%"}
-      backgroundColor="aliceblue"
+      backgroundColor="#F0F8FF"
       p="1rem 6%"
       textAlign={"center"}
       sx={{ boxShadow: 3, nb: 2 }}

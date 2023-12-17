@@ -1,4 +1,5 @@
 import React from "react";
+import "../index.css";
 import { Box, Typography, Card, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import DescriptionRounded from "@mui/icons-material/DescriptionRounded";
@@ -6,7 +7,6 @@ import FormatAlignLeftOutlined from "@mui/icons-material/FormatAlignLeftOutlined
 import ChatRounded from "@mui/icons-material/ChatRounded";
 import CodeOutlined from "@mui/icons-material/CodeOutlined";
 import ImageOutlined from "@mui/icons-material/ImageOutlined";
-import "../styles.css";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const Homepage = () => {
     <>
       <Box
         sx={{
+          backgroundColor: "#90EE90",
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
@@ -177,30 +178,21 @@ const Homepage = () => {
       </Box>
 
       <Box
+        width="100%"
+        backgroundColor="#F0F8FF"
+        p="0.5rem 6%"
+        textAlign="center"
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: 4,
-          mb: 2,
+          boxShadow: 3,
+          position: "relative",
+          bottom: 0,
+          top: "2vh",
+          height: "calc(20vh + 100%)",
         }}
       >
-        <Box
-          width="100%"
-          backgroundColor="aliceblue"
-          p="2rem 6%"
-          textAlign="center"
-          sx={{
-            boxShadow: 3,
-            position: "relative",
-            bottom: 0,
-            top: "2vh",
-            height: "calc(20vh + 100%)",
-          }}
-        >
-          <Typography variant="subtitle1">
-            Copyright &copy; 2023 || All Rights Reserved.
-          </Typography>
-        </Box>
+        <Typography variant="subtitle1">
+          Copyright &copy; 2023 || All Rights Reserved.
+        </Typography>
       </Box>
     </>
   );

@@ -79,31 +79,39 @@ export const themeSettings = (mode) => {
       fontFamily: "Roboto, sans-serif",
       fontSize: 16,
       h1: {
-        fontSize: 48,
-        fontWeight: "bold",
-        marginBottom: "1rem",
-        color: primaryColor,
-      },
-      h2: {
-        fontSize: 40,
-        fontWeight: "bold",
-        marginBottom: "1rem",
-        color: primaryColor,
-      },
-      h3: {
         fontSize: 32,
         fontWeight: "bold",
         marginBottom: "0.75rem",
         color: primaryColor,
       },
-      // ... (other heading styles)
+      h2: {
+        fontSize: 28,
+        fontWeight: "bold",
+        marginBottom: "0.75rem",
+        color: primaryColor,
+      },
+      h3: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: "0.75rem",
+        color: primaryColor,
+      },
+      h4: {
+        fontSize: 20,
+      },
+      h5: {
+        fontSize: 20,
+      },
+      h6: {
+        fontSize: 20,
+      },
       body1: {
-        fontSize: 16,
+        fontSize: 14,
         lineHeight: 1.5,
         color: isDarkMode ? "#ffffff" : "#333333",
       },
       button: {
-        fontSize: 14,
+        fontSize: 12,
         textTransform: "uppercase",
         fontWeight: "bold",
       },
@@ -126,5 +134,24 @@ export const themeSettings = (mode) => {
           "0px 8px 16px rgba(0, 0, 0, 0.1)",
           "0px 16px 24px rgba(0, 0, 0, 0.1)",
         ],
+    "@media (max-width: 600px)": {
+      typography: {
+        h1: {
+          fontSize: 24,
+        },
+        h2: {
+          fontSize: 20,
+        },
+        h3: {
+          fontSize: 18,
+        },
+        body1: {
+          fontSize: 12,
+        },
+        button: {
+          fontSize: 10,
+        },
+      },
+    },
   };
 };

@@ -50,99 +50,101 @@ const Chatbot = () => {
     }
   };
   return (
-    <Box
-      width={isNotMobile ? "40%" : "80%"}
-      p={"2rem"}
-      m={"2rem auto"}
-      borderRadius={5}
-      sx={{ boxShadow: 5 }}
-      backgroundColor={theme.palette.background.alt}
-    >
-      <Collapse in={error}>
-        <Alert severity="error" sx={{ mb: 2 }}>
-          {error}
-        </Alert>
-      </Collapse>
-      <form onSubmit={handleSubmit}>
-        <Typography variant="h3">Ask With Chatbot</Typography>
+    <Box sx={{ backgroundColor: "#90EE90", marginTop: 0, marginBottom: 0 }}>
+      <Box
+        width={isNotMobile ? "40%" : "80%"}
+        p={"2rem"}
+        m={"2rem auto"}
+        borderRadius={5}
+        sx={{ boxShadow: 5, marginTop: 0, marginBottom: 0 }}
+        backgroundColor={theme.palette.background.alt}
+      >
+        <Collapse in={error}>
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        </Collapse>
+        <form onSubmit={handleSubmit}>
+          <Typography variant="h3">Ask With Chatbot</Typography>
 
-        <TextField
-          placeholder="Start Chatting.."
-          type="text"
-          multiline={true}
-          required
-          margin="normal"
-          fullWidth
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          size="large"
-          sx={{ color: "white", mt: 2 }}
-        >
-          Chat
-        </Button>
-        <Typography mt={2}>
-          Not This Tool ? <Link to="/">GO BACK</Link>
-        </Typography>
-      </form>
-      {isLoading ? (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="500px"
-        >
-          <CircularProgress
-            size={24}
-            style={{ color: "#B0B0B0", backgroundColor: "#B8860B" }}
+          <TextField
+            placeholder="Start Chatting.."
+            type="text"
+            multiline={true}
+            required
+            margin="normal"
+            fullWidth
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
           />
-        </Box>
-      ) : response ? (
-        <Card
-          sx={{
-            mt: 4,
-            border: 1,
-            boxShadow: 0,
-            height: "500px",
-            borderRadius: 5,
-            borderColor: "natural.medium",
-            bgcolor: "background.default",
-          }}
-        >
-          <Typography p={2}>{response}</Typography>
-        </Card>
-      ) : (
-        <Card
-          sx={{
-            mt: 4,
-            border: 1,
-            boxShadow: 0,
-            height: "500px",
-            borderRadius: 5,
-            borderColor: "natural.medium",
-            bgcolor: "background.default",
-          }}
-        >
-          <Typography
-            variant="h5"
-            color="natural.main"
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            size="large"
+            sx={{ color: "white", mt: 2 }}
+          >
+            Chat
+          </Button>
+          <Typography mt={2}>
+            Not This Tool ? <Link to="/">GO BACK</Link>
+          </Typography>
+        </form>
+        {isLoading ? (
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="500px"
+          >
+            <CircularProgress
+              size={24}
+              style={{ color: "#B0B0B0", backgroundColor: "#B8860B" }}
+            />
+          </Box>
+        ) : response ? (
+          <Card
             sx={{
-              textAlign: "center",
-              verticalAlign: "middel",
-              lineHeight: "450px",
+              mt: 4,
+              border: 1,
+              boxShadow: 0,
+              height: "500px",
+              borderRadius: 5,
+              borderColor: "natural.medium",
+              bgcolor: "background.default",
             }}
           >
-            Bot Response
-          </Typography>
-        </Card>
-      )}
+            <Typography p={2}>{response}</Typography>
+          </Card>
+        ) : (
+          <Card
+            sx={{
+              mt: 4,
+              border: 1,
+              boxShadow: 0,
+              height: "500px",
+              borderRadius: 5,
+              borderColor: "natural.medium",
+              bgcolor: "background.default",
+            }}
+          >
+            <Typography
+              variant="h5"
+              color="natural.main"
+              sx={{
+                textAlign: "center",
+                verticalAlign: "middel",
+                lineHeight: "450px",
+              }}
+            >
+              Bot Response
+            </Typography>
+          </Card>
+        )}
+      </Box>
     </Box>
   );
 };
